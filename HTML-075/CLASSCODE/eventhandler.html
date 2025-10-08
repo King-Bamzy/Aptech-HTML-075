@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT AND EVENT HANDLING</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    
+    <h2>Javascript Event and Event Handling Demo</h2>
+
+    <!-- HTML event attributes -->
+     <button onclick="htmlEvent()">Click Me!(HTML Attribute)</button>
+
+    <!-- Using addEventListener -->
+      <button id="jsEventBtn">Click Me!(addEventListener)</button>
+
+    <!--  Mouse events -->
+        <div class="box" id="hoverBox">Hover over Me!</div>
+
+    <!-- Keyboard events -->
+        <input type="text" id="keyInput" placeholder="Type something...">
+
+        <!-- Focus and blur events -->
+        <input type="text" id="focusInput" placeholder="Focus on me...">
+
+        <!-- Output-->
+         <div id="output" style="margin-top: 20px;"></div>
+
+         <script>
+            const output = document.getElementById('output');
+
+            //1. HTML event attribute handler
+            function htmlEvent() {
+                output.innerHTML += "<p>You clicked Button using HTML attribute!</p>";
+            }
+            //2. Using addEventListener
+            document.getElementById('jsEventBtn').addEventListener('click', function() {
+                output.innerHTML += "<p>You clicked Button using addEventListener!</p>";
+            });
+
+            //3. Mouseover and mouseout
+            const box = document.getElementById("hoverBox");
+            box.addEventListener('mouseover', function() {
+                box.style.backgroundColor = 'orange';
+                output.innerHTML += "<p>Mouse  over the box!</p>";
+            });
+
+            box.addEventListener('mouseout', function() {
+                box.style.backgroundColor = 'lightblue';
+                output.innerHTML += "<p>Mouse left the box!</p>";
+            });
+
+            //4. Keyboard events(keyup)
+            document.getElementById('keyInput').addEventListener('keyup', function(event) {
+                output.innerHTML += `<p>You typed: ${event.key}</p>`;
+            });
+
+            //5. Focus and blur events
+            const focusInput = document.getElementById('focusInput');
+
+            focusInput.addEventListener('focus', function() {
+                focusInput.style.border = "2px solid green";
+                output.innerHTML += "<p>Input focused</p>";
+            });
+
+            focusInput.addEventListener('blur', function() {
+                focusInput.style.border = "1px solid #ccc";
+                output.innerHTML += "<p>Input blurred</p>";
+            });
+            
+         </script>
+</body>
+</html>

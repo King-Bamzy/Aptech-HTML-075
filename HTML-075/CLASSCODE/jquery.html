@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+</head>
+<style>
+    .highlight{
+        background-color: yellow;
+        font-weight: bold;
+    }
+    #box{
+        width: 200px;
+        height: 100px;
+        background: lightblue;
+        margin: 20px 0;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+<!--jQuery CDN-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>jQuery Full Feature</h2>
+
+    <!-- Elements to manipulate-->
+    <p id="text">This is a paragraph.</p>
+    <button id="changeText">Change Text</button>
+    <button id="toggleText">Toggle Text</button>
+    <button id="addClass">Add Class</button>
+    <button id="fadeoutBox">Fade Out </button>
+    <button id="slideBox">Slide Toggle</button>
+    <button id="attrButton">Change Link</button>
+    <br><br>
+
+    <div id="box">Box Elements.</div>
+
+    <a href="https://www.example.com" id="myLink" target="_blank">Go to Example.com</a>
+
+    <script>
+        //Wait until document is ready
+        $(document).ready(function(){
+            //1. Change Text .text()
+            $("#changeText").click(function(){
+                $("#text").text("Text has been changed!");
+            });
+            //2. Toggle Element visibility using .toggle()
+            $("#toggleBox").click(function(){
+                $("#box").toggle();
+            });
+            //
+    </script>
+</body>
+</html>

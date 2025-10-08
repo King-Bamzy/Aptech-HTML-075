@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return statement</title>
+</head>
+<script>
+    function factorial(num)
+    {
+        if(num == 0)
+        return 0;
+        else if(num == 1)
+            return 1;
+        else
+        {
+            var result =num;
+            while(num > 1)
+            {
+                result = result * (num-1);
+                num--;
+            }
+            return result;
+        }
+    }
+    var num = prompt('Enter number:', '');
+    var result = factorial(num);
+    alert('Factorial of ' + num + ' is ' + result);
+</script>
+<body>
+    
+</body>
+</html>

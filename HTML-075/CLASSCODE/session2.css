@@ -1,0 +1,28 @@
+h1{
+    color: blue;
+}
+.fir{
+    color: red;
+}
+#sec{
+    color: cyan;
+}
+header{
+    background-color: silver;
+    height: 800px;
+    width: 90%;
+    display: flex;
+    margin-left: 70px;
+}
+section, .div{
+    background-color: lightgray;
+    height: 400px;
+    width: 40%;
+}
+div{
+    margin-left: 300px;
+}
+section{
+    margin-right: 300px;
+    margin-top: 100px;
+}

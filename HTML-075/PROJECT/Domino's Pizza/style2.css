@@ -1,0 +1,164 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa; /* Light background for the body */
+}
+
+* {
+  box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 1000; /* Ensure the header stays above other content */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Hide by default on larger screens */
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav ul li {
+  display: inline;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav ul li a:hover {
+  background-color: #555;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: -250px; /* Initially hidden off-screen */
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #444;
+  color: white;
+  padding: 20px;
+  transition: left 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #555;
+}
+
+/* Active Sidebar - Visible */
+.sidebar.active {
+  left: 0; /* Sidebar slides in */
+}
+
+/* Content Styling */
+.content {
+  padding: 20px;
+  margin-left: 270px; /* Account for sidebar width when visible */
+  transition: margin-left 0.3s ease; /* Smooth transition for content shifting */
+}
+
+.section {
+  height: 100vh; /* Just to create scrollable content */
+  background-color: #f4f4f4;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.section:nth-child(odd) {
+  background-color: #eaeaea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show the hamburger icon on smaller screens */
+  }
+
+  .nav {
+    display: none; /* Hide the nav links on smaller screens */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nav.active {
+    display: flex;
+  }
+
+  .content {
+    margin-left: 0; /* Remove the left margin when the sidebar is active */
+  }
+
+  /* Sidebar should be hidden by default on mobile */
+  .sidebar {
+    left: -250px;
+  }
+}

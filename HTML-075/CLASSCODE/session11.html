@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+    <title>JAVASCRIPT</title>
+<head>
+   <script>
+    document.write("Welcome to the Digital world!");
+   </script>
+</head>
+<body>
+    
+    <script>
+        console.log("WELCOME TO JAVASCRIPT CLASS");
+    </script>
+    <script>
+        alert("HOW ARE YOU JAVASCRIPT ");
+    </script>
+    <p id="test"></p>
+    <br>
+    <p id="test2">First statement</p>
+    <p id="test3">add </p>
+    <p id="test4">Result</p>
+    <p id="test5">Result</p>
+    <p id="test6">Result</p>
+    <p id="test7">Result</p>
+    <p id="test8">Result</p>
+        
+    <script>
+        document.getElementById("test").innerHTML="Welcome to Aptech !!!!!";
+        function myfun(){ 
+            document.getElementById("test2").innerHTML="Second Statement !!!!";
+        }  
+        function add(){
+            a=10;
+            b=20;
+            // c =a+b:
+            document.getElementById("test3").innerHTML = (c=a+b) ;
+        }  
+        let firstnum =prompt("enter the first number: ");
+        let Secondnum =prompt("enter the second number:");
+        ad = firstnum + Secondnum;
+        div = firstnum / Secondnum;
+        mul = firstnum * Secondnum;
+        sub = firstnum - Secondnum;
+        mod = firstnum % Secondnum;
+
+        function result(){
+            document.getElementById("test4").innerHTML = ad;
+            document.getElementById("test5").innerHTML = div;
+            document.getElementById("test6").innerHTML = mul;
+            document.getElementById("test7").innerHTML = sub;
+            document.getElementById("test8").innerHTML = mod;
+        }
+
+
+    </script>
+    <button onclick="result();">Result</button>
+     <br>
+     <button onclick="add();">add</button>
+     <br>
+    <button  onclick="myfun()">
+        Click Me
+    </button>
+</body>
+</html>

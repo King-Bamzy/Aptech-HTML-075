@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable and Data types</title>
+</head>
+<body>
+    <h1>Variable and Data types</h1>
+    <script>
+        //string
+        let name = "Alice";
+
+        //Number (integer and float)
+        let age = 25; 
+        let height = 5.7; 
+
+        //Boolean
+        let isStudent = true; 
+
+        //Null
+        let emptyValue = null;
+
+        //Undefined
+        let notAssigned;
+
+        //Object
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30
+        };
+
+        //Array (object type too)
+        let fruits = ["Apple", "Banana", "Mango"];
+
+        //Symbol
+        let id = Symbol("uniqueId");
+
+        //BigInt (for very large integers)
+        let bigNumber = 1234567890123456789012345678901234567890n;
+
+        //Function (also a type of object)
+        function greet() {
+            return "Hello, ";
+        }
+
+
+        
+        //Display all values and types
+        console.log("Name: ", name + " Type: ", typeof name );
+        console.log("Age: ", age + " Type: ", typeof age  );
+        console.log("Height: ", height + " Type: ", typeof height );
+        console.log("Is Student: ", isStudent + " Type: ", typeof isStudent );
+        console.log("Empty Value: ", emptyValue + " Type: ", typeof emptyValue );
+        //object (special case)
+        console.log("Not Assigned: ", notAssigned + " Type: ", typeof notAssigned);
+        console.log("Person: ", JSON.stringify(person) + " Type: ", typeof person );
+        console.log("Fruits: ", fruits + " Type: ", typeof fruits );
+        console.log("ID: ", String(id) + " Type: ", typeof id );
+        console.log("Big Number: ", bigNumber + " Type: ", typeof bigNumber );
+        console.log("Greet Function: ", greet() + " Type: ", typeof greet );
+    </script>
+   
+</body>
+</html>

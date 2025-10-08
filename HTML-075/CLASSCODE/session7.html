@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thumbnail</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 40px 80px;
+            background: #fff;
+            font: 70% arial, helvetica, sans-serif;
+            color: #555;
+            line-height: 100%;
+        }
+
+        h1, h2{
+            font-size: 100%;
+            font-weight: normal;
+            color: #555;
+        }
+        p{
+            margin: 1em 0;;
+  }
+        p.text{
+            width: 500px;
+        }
+        a{
+            color: #f20;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #999;
+        }
+        img{
+            border: none;
+        }
+        ul#thumbs, ul#thumbs li{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul#thumbs li{
+            float: left;
+            margin: 0 20px 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+           }
+           ul#thumbs a{
+            display: block;
+            float: left;
+            width: 125px;
+            height: 135px;
+            line-height: 50px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+           }
+
+           ul#thumbs a img{
+            float: left;
+            position: absolute;
+            top: 0px;
+ left: 0px;
+           }
+           ul#thumbs a:hover{
+            overflow: visible;
+            z-index: 1000;
+            border: none;
+           }
+           ul#thumbs:after, li#thumbs:after{
+            content: ".";
+            display: block;
+            clear: both;
+            height: 0;
+            visibility: hidden;
+           }
+           ul#thumbs, li#thumbs{
+            display: block;
+           }
+           ul#thumbs, li#thumbs{
+            min-height: 1%;
+           }
+           * html ul#thumbs , * html li#thumbs{
+            height: 1%;
+           }
+    </style>
+</head>
+<body>
+    <h2>Thumbnail</h2>
+    <ul id="thumbs">
+        <li>
+            <a href="#">
+                <img src="thumb1.jpg" alt="Thumbnail 1">
+            </a>
+        </li>
+    </ul>
+</body>
+</html>
