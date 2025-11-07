@@ -1,0 +1,19 @@
+.App{
+    text-align: center;
+}
+.user-name{
+    font-family: 'Times New Roman';
+    font-weight: normal;
+}
+.user-profile-pic{
+    height: 250px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.user-first-name{
+    font-weight: bolder;
+    font-style: italic;
+    color: orange;
+    
+}

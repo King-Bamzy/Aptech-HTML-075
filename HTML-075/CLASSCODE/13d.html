@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #mcanvas {
+                border: 1px solid green;
+            }
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var canvas = document.getElementById("mcanvas");
+                var ctext = canvas.getContext("2d");
+                ctext.beginPath();
+                ctext.rect(30, 50, 150, 100);
+                ctext.fillStyle = "magenta";
+                ctext.fill();
+                ctext.lineWidth = 5;
+                ctext.strokeStyle = "black";
+                ctext.stroke();
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="mcanvas" width="400" height="200"></canvas>
+    </body>
+</html>

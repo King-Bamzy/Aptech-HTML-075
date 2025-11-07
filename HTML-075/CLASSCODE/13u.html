@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    store = db.transaction("employee").objectStore("employee");
+    store.openCursor().onsuccess = function(event) {
+        var cursor = event.target.result;
+        if (cursor) {
+            alert("Name for id " + cursor.key + " is " + cursor.value.name);
+            cursor.continue();
+        }
+    };
+</script>
+</head>
+<body>
+    
+</body>
+</html>

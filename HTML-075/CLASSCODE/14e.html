@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Handling Error</title>
+<script>
+function getLocation()
+{
+    function showPosition(position)
+    {
+        alert('Latitude: ' + position.coords.latitude + '\n' +
+        'Longitude: ' + position.coords.longitude);
+    }
+
+    function errorHandler(error)
+    {
+        switch (error.code)
+        {
+            case error.PERMISSION_DENIED:
+                alert ('You have denied access to your position.');
+                break;
+            case error.POSITION_UNAVAILABLE:
+                alert ('There was a problem getting your position.');
+                break;
+            case error.TIMEOUT:
+                alert ('The application has timed out attempting to
+                get your position.');
+                break;
+        }
+    }
+}
+</script>
+<input type="button" value="Display Location"
+onClick="getLocation()"/>
+</body>
+</html>

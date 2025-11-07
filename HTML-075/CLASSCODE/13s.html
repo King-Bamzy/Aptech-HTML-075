@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var indexDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+        var request = indexedDB.open("CompanyDB", 1);
+        request.onsuccess = function(event) {
+           console.log("Database opened successfully");
+          };
+          request.onerror = function(event) {
+           console.log("IndexedDB error: " + event.target.errorCode);
+          };
+          var setVrequest = db.setVersion("1.99");
+            setVrequest.onsuccess = function(event) {
+            
+            };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

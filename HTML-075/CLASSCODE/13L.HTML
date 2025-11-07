@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            #mcanvas {
+                border: 1px solid #9c9898;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var canvas = document.getElementById("mcanvas");
+                var ctext = canvas.getContext("2d");
+                ctext.fillStyle = "Indigo";
+                ctext.strokeStyle = "Violet";
+                ctext.lineWidth = 2;
+                ctext.font = "italic 30px Blackadder ITC";
+                ctext.fillText("Welcome to HTML5", 40, 100);
+                ctext.strokeText("Welcome to HTML5", 40, 100);
+                ctext.fillStyle = "blue";
+                ctext.globalAlpha=0.5;
+                ctext.fillRect(100, 10, 150, 100);
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="mcanvas" width="380" height="170"></canvas>
+    </body>
+</html>

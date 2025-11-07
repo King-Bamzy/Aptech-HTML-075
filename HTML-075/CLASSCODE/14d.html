@@ -1,0 +1,21 @@
+<script>
+var options = {
+    enableHighAccuracy: true,
+    maximumAge: 50000,
+    timeout: 60000
+};
+
+function getLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition,
+        errorHandler, options);
+    }
+    else
+    {
+        alert ("Geolocation is not supported in this browser.");
+    }
+}
+//...
+</script>

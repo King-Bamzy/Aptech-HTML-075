@@ -1,0 +1,25 @@
+function initialize()
+{
+    // Loading Google Maps
+    var num = new google.maps.LatLng(51.528663, -0.173171);
+    var myOptions = {
+        zoom: 16,
+        center: num,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+
+    var mymap = new google.maps.Map(document.getElementById(
+    "map_canvas"), myOptions);
+
+    var marker = new google.maps.Marker({
+        position: num,
+        map: mymap,
+        title: "Lord's Cricket Ground, London!"
+    });
+}
+</script>
+</head>
+<body onload="initialize()">
+<div id="map_canvas"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            #mcanvas {
+                border: 1px solid black;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var canvas = document.getElementById("mcanvas");
+                var ctext = canvas.getContext("2d");
+               var x = 80;
+               var y = 110;
+               ctext.font = "40pt Calibri";
+               ctext.lineWidth = 2;
+               // stroke color
+               ctext.strokeStyle = "Brown";
+               ctext.strokeText("HTML5", x, y);
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="mcanvas" width="350" height="200"></canvas>
+    </body>
+</html>

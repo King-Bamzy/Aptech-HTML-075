@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+            }
+            #mcanvas {
+                border: 1px solid #9c9898;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var canvas = document.getElementById("mcanvas");
+                var ctext = canvas.getContext("2d");
+                ctext.font = "italic 30px Blackadder ITC";
+                ctext.fillStyle = "MediumVioletRed";
+                ctext.fillText("Welcome to HTML5", 40, 100);
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="mcanvas" width="380" height="170"></canvas>
+    </body>
+</html>

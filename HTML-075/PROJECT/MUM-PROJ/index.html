@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Rahfel Bread and Bites</title>
+        <link rel="stylesheet" href="syl.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- Add Paystack JS -->
+        <script src="https://js.paystack.co/v1/inline.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="logo.jpg" alt="Rahfel Bread and Bites Logo" class="logo">
+            <div class="header-actions">
+                <input type="text" placeholder="Search our store..." aria-label="Search our store">
+                <div class="cart">
+                    <button id="open-order" aria-haspopup="dialog">Cart</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Fresh Bread Delivered to Your Door</h2>
+            <p>Explore our wide range of freshly baked bread, cakes, and delicious pastries made fresh daily.</p>
+            <a class="hero-cta" href="#" id="open-order-cta">Order Now</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="category-item" data-product="butter">
+            <img src="classic.jpg" alt="Butter Bread">
+            <p>Freshly Baked Butter Bread</p>
+        </div>
+        <div class="category-item" data-product="coconut">
+            <img src="coco.jpg" alt="Coconut Bread">
+            <p>Freshly Baked Coconut Bread</p>
+        </div>
+        <div class="category-item" data-product="sardine">
+            <img src="sardine.jpg" alt="Sardine Bread">
+            <p>Freshly Baked Sardine Bread</p>
+        </div>
+    </section>
+
+    <section class="client-section">
+        <h2>OUR BUSINESS CERTIFICATE</h2>
+        <div class="client-grid">
+            <div class="client-item">
+                <img src="download.png" alt="NAFDAC certificate">
+                <p>NAFDAC</p>
+            </div>
+            <div class="client-item">
+                <img src="download (5).jpeg" alt="CAC certificate">
+                <p>CAC</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p><strong>Address:</strong> 65 Esindana Road, Better Life Bus Stop, Abaranje, Ikotun Lagos</p>
+            <p><strong>Hours:</strong> 8am - 9pm</p>
+            <p><strong>Contact:</strong> 08035107911 / 08023703429</p>
+        </div>
+        <div class="service-info">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-item">
+                    <i class="fas fa-bread-slice"></i>
+                    <p>Bread Baking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div id="order-modal" class="modal compact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="order-title">
+            <div class="modal-backdrop" id="modal-backdrop"></div>
+            <div class="modal-panel" role="document">
+                <button class="modal-close" id="modal-close" aria-label="Close order form">×</button>
+                <h3 id="order-title">Place Your Order</h3>
+                <div class="form-scroll-container">
+                    <form id="order-form" class="compact-form">
+                        <label for="cust-name">Your Full Name</label>
+                        <input id="cust-name" name="name" type="text" placeholder="Enter your full name" required>
+
+                        <label for="cust-contact">Phone Number or Email</label>
+                        <input id="cust-contact" name="contact" type="text" placeholder="08035107911 or your@email.com" required>
+
+                        <label for="cust-address">Delivery Address</label>
+                        <input id="cust-address" name="address" type="text" placeholder="Enter your complete delivery address" required>
+                        
+                        <label for="product">Product</label>
+                        <select id="product" name="product">
+                            <option value="butter">Butter Bread</option>
+                            <option value="coconut">Coconut Bread</option>
+                            <option value="sardine">Sardine Bread</option>
+                        </select>
+
+                        <div id="butter-price-options" class="butter-price-options" style="display: none;">
+                            <div class="price-option">
+                                <input type="radio" id="butter-250" name="butter-size" value="250" checked>
+                                <label for="butter-250">₦250</label>
+                            </div>
+                            <div class="price-option">
+                                <input type="radio" id="butter-300" name="butter-size" value="300">
+                                <label for="butter-300">₦300</label>
+                            </div>
+                            <div class="price-option">
+                                <input type="radio" id="butter-500" name="butter-size" value="500">
+                                <label for="butter-500">₦500</label>
+                            </div>
+                            <div class="price-option">
+                                <input type="radio" id="butter-1200" name="butter-size" value="1200">
+                                <label for="butter-1200">₦1,200</label>
+                            </div>
+                            <div class="price-option">
+                                <input type="radio" id="butter-1500" name="butter-size" value="1500">
+                                <label for="butter-1500">₦1,500</label>
+                            </div>
+                            <div class="price-option">
+                                <input type="radio" id="butter-1800" name="butter-size" value="1800">
+                                <label for="butter-1800">₦1,800</label>
+                            </div>
+                        </div>
+
+                        <label for="quantity">Quantity</label>
+                        <input id="quantity" name="quantity" type="number" min="1" value="1">
+
+                        <label for="delivery">Delivery Date</label>
+                        <input id="delivery" name="delivery" type="date">
+
+                        <div class="form-row">
+                            <label for="price">Total Price</label>
+                            <input id="price" name="price" type="text" readonly>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="cancel-order">Cancel</button>
+                            <button type="submit">Proceed to Payment</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        (function(){
+            const openBtn = document.getElementById('open-order');
+            const openCta = document.getElementById('open-order-cta');
+            const modal = document.getElementById('order-modal');
+            const close = document.getElementById('modal-close');
+            const backdrop = document.getElementById('modal-backdrop');
+            const cancel = document.getElementById('cancel-order');
+            const form = document.getElementById('order-form');
+            const qty = document.getElementById('quantity');
+            const product = document.getElementById('product');
+            const price = document.getElementById('price');
+            const deliveryDate = document.getElementById('delivery'); 
+            const butterPriceOptions = document.getElementById('butter-price-options');
+            const basePrices = { butter: 250, coconut: 1800, sardine: 1800 }; 
+            const nameField = document.getElementById('cust-name');
+            const contactField = document.getElementById('cust-contact');
+            const addressField = document.getElementById('cust-address');
+
+            // PAYMENT FUNCTION
+            function startPayment(amount, contact, name, orderDetails) {
+                const handler = PaystackPop.setup({
+                    key: 'pk_test_fd667149e05bdc7900e069e5ddd447d3acba3543',
+                    email: contact.includes('@') ? contact : 'order@rahfelbakery.com',
+                    amount: amount * 100,
+                    currency: 'NGN',
+                    ref: '' + Math.floor((Math.random() * 1000000000) + 1),
+                    callback: function(response) {
+                        // Payment successful - save to Google Sheets + send email
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbxE7KsIlT79TuY1cDJN5ba9YWIzVfuEMbNpXT3ghXBBpeJkKhOvjQDxSXEJCJTpXZ2fjw/exec';
+
+                        const orderData = {
+                            name: name,
+                            product: product.options[product.selectedIndex].text,
+                            quantity: qty.value,
+                            price: amount,
+                            area: orderDetails.butterSize,
+                            contact: contact,
+                            address: addressField.value,
+                            delivery: deliveryDate.value,
+                            paymentReference: response.reference
+                        };
+
+                        // Save to Google Sheets for analytics
+                        fetch(scriptURL, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(orderData)
+                        })
+                        .then(() => {
+                            // Also send email notification
+                            const emailData = {
+                                product: product.value,
+                                productName: product.options[product.selectedIndex].text,
+                                butterSize: orderDetails.butterSize,
+                                quantity: qty.value,
+                                delivery: deliveryDate.value, 
+                                price: '₦' + amount,
+                                name: name,
+                                contact: contact,
+                                address: addressField.value,
+                                paymentReference: response.reference,
+                                _subject: 'PAID Order - Rahfel Bread & Bites'
+                            };
+                            
+                            return fetch('https://formsubmit.co/ajax/rahmonayobami45@gmail.com', {
+                                method: 'POST',
+                                headers: { 
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify(emailData)
+                            });
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            alert('Payment successful! Order confirmed and saved to analytics.');
+                            closeModal();
+                            form.reset();
+                            updatePrice();
+                        })
+                        .catch(error => {
+                            alert('Payment successful! Order confirmed. If you don\'t hear from us within 24 hours, please call 08035107911');
+                            closeModal();
+                            form.reset();
+                            updatePrice();
+                        });
+                    },
+                    onClose: function() {
+                        alert('Payment cancelled. Your order was not completed.');
+                    }
+                });
+                handler.openIframe();
+            }
+
+            function openModal(productType = 'butter'){ 
+                // Set the product based on what was clicked
+                product.value = productType;
+                
+                modal.setAttribute('aria-hidden','false'); 
+                modal.classList.add('open'); 
+                document.body.style.overflow='hidden'; 
+                updatePrice(); 
+                toggleButterOptions();
+            }
+            
+            function closeModal(){ 
+                modal.setAttribute('aria-hidden','true'); 
+                modal.classList.remove('open'); 
+                document.body.style.overflow=''; 
+            }
+
+            function updatePrice(){
+                const p = product.value;
+                const q = Math.max(1, parseInt(qty.value||1,10));
+                
+                let selectedPrice;
+                if (p === 'butter') {
+                    const selectedOption = document.querySelector('input[name="butter-size"]:checked');
+                    selectedPrice = selectedOption ? parseInt(selectedOption.value) : basePrices[p];
+                } else {
+                    selectedPrice = basePrices[p];
+                }
+                
+                const total = selectedPrice * q;
+                price.value = '₦' + total.toLocaleString();
+                return total;
+            }
+
+            function toggleButterOptions() {
+                if (product.value === 'butter') {
+                    butterPriceOptions.style.display = 'flex';
+                } else {
+                    butterPriceOptions.style.display = 'none';
+                }
+                updatePrice();
+            }
+
+            // Click on bread images to open order form
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const productType = this.getAttribute('data-product');
+                    openModal(productType);
+                });
+            });
+
+            if(openBtn) openBtn.addEventListener('click', function() { openModal('butter'); });
+            if(openCta) openCta.addEventListener('click', function(e){ e.preventDefault(); openModal('butter'); });
+            if(close) close.addEventListener('click', closeModal);
+            if(backdrop) backdrop.addEventListener('click', closeModal);
+            if(cancel) cancel.addEventListener('click', closeModal);
+            
+            product.addEventListener('change', toggleButterOptions);
+            qty.addEventListener('input', updatePrice);
+            
+            const butterSizeOptions = document.querySelectorAll('input[name="butter-size"]');
+            butterSizeOptions.forEach(option => {
+                option.addEventListener('change', updatePrice);
+            });
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const totalAmount = updatePrice();
+                
+                // GET REAL CUSTOMER CONTACT - FIXED VERSION
+                const contactValue = contactField.value.trim();
+                const customerName = nameField.value.trim();
+                const customerAddress = addressField.value.trim();
+                
+                if (!customerAddress) {
+                    alert('Please enter your delivery address');
+                    return;
+                }
+                
+                let selectedButterSize = '';
+                if (product.value === 'butter') {
+                    const selectedOption = document.querySelector('input[name="butter-size"]:checked');
+                    if (selectedOption) {
+                        selectedButterSize = '₦' + selectedOption.value;
+                    }
+                }
+                
+                const orderDetails = {
+                    butterSize: selectedButterSize,
+                    productName: product.options[product.selectedIndex].text
+                };
+
+                // Start payment process with REAL contact info
+                startPayment(totalAmount, contactValue, customerName, orderDetails);
+            });
+            
+            toggleButterOptions();
+            updatePrice();
+        })();
+        </script>
+        <div class="footer-content">
+            <p>&copy; 2024 Rahfel Bread and Bites &copy;.<br> All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

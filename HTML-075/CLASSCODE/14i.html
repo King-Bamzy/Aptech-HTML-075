@@ -1,0 +1,42 @@
+// Creates the Map object
+var map = new
+google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+// Displays icon on the located position
+var marker = new google.maps.Marker({
+    position: latlng,
+    map: map,
+    title: "User location"
+}));
+
+// Error callback function
+function errorFunction(pos)
+{
+    alert('Error!');
+}
+
+// Success function
+function displayPosition(position)
+{
+    var my_lat = position.coords.latitude;
+    var my_lng = position.coords.longitude;
+    var div_info =
+    document.getElementById('user_location');
+    div_info.innerHTML = '<h1> Latitude is: ' +
+    my_lat + ' and Longitude is ' + my_lng + '</h1>';
+    // Load Google Maps
+    var latlng = new google.maps.LatLng(my_lat, my_lng);
+    var myOptions = {
+        zoom: 12, // the initial resolution is set at
+        // while map is displayed
+        center: latlng, // centers the map
+        mapTypeId: google.maps.MapTypeId.ROADMAP // sets
+        // the map type
+    }
+}
+</script>
+<body>
+<div id="map_canvas"></div>
+<div id="user_location"></div>
+</body>
+</html>

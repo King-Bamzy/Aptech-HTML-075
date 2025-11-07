@@ -1,44 +1,175 @@
-<a href="a.html">Home</a>
-<head><link rel="stylesheet" href="sly.css">
-    
-</head>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Order Form - Rahfel Bread & Bites</title>
+        <link rel="stylesheet" href="syl.css">
+        <style>body{padding:20px;} .standalone{max-width:720px;margin:24px auto;background:#fff;padding:18px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}</style>
+    </head>
+    <body>
+        <a href="index.html">← Back to Home</a>
+        <div class="standalone">
+            <h2>Place Your Order</h2>
+            <form id="order-form-standalone" class="compact-form">
+                <label for="prod">Product</label>
+                <select id="prod" name="product">
+                    <option value="butter">Butter Bread</option>
+                    <option value="coconut">Coconut Bread</option>
+                    <option value="sardine">Sardine Bread</option>
+                </select>
 
-  <p>
-    <table border="7">
-        <tr>
-            <th>Rahfel Bread & Bites</th>
-            <th>Price</th>
-        </tr>
-        <tr>
-            <td>Butter Bread</td>
-            <ul>
-                <td><li> 250# </li></td>
-            <td> <li>300# </td></li>
-                    <td> <li>500# </li></td>
-                        <td><li> 600# </li></td>
-            <td><li> 1000# </li></td>
-            <td><li> 1400# </li></td>
-            <td><li> 1800# </li></td>
-            </ul>
-            </tr>
-            <tr>
-                <td>Sardine bread</td>
-                <td>1800#</td>
-                </tr>
-                <tr>
-                    <td>Coconut Bread</td>
-                    <td>1800#</td>
-                    </tr>
-            </table>
-  </p>
-  <form>
-    <label> Bread Type </label>
-    <input name="Bread Type"><br>
-    <label>Quantity</label>
-    <input name="Quantity"><br>
-    <label>Delivery Date</label>
-    <input name="Date" type="date"><br>
-    <label>Price</label>
-    <input name="Price"><br>
-    <button>Order</button>
-    </form>
+                <div id="butter-price-options-standalone" class="butter-price-options" style="display: none;">
+                    <div class="price-option">
+                        <input type="radio" id="butter-250-standalone" name="butter-size-standalone" value="250" checked>
+                        <label for="butter-250-standalone">₦250</label>
+                    </div>
+                    <div class="price-option">
+                        <input type="radio" id="butter-300-standalone" name="butter-size-standalone" value="300">
+                        <label for="butter-300-standalone">₦300</label>
+                    </div>
+                    <div class="price-option">
+                        <input type="radio" id="butter-500-standalone" name="butter-size-standalone" value="500">
+                        <label for="butter-500-standalone">₦500</label>
+                    </div>
+                    <div class="price-option">
+                        <input type="radio" id="butter-1200-standalone" name="butter-size-standalone" value="1200">
+                        <label for="butter-1200-standalone">₦1,200</label>
+                    </div>
+                    <div class="price-option">
+                        <input type="radio" id="butter-1500-standalone" name="butter-size-standalone" value="1500">
+                        <label for="butter-1500-standalone">₦1,500</label>
+                    </div>
+                    <div class="price-option">
+                        <input type="radio" id="butter-1800-standalone" name="butter-size-standalone" value="1800">
+                        <label for="butter-1800-standalone">₦1,800</label>
+                    </div>
+                </div>
+
+                <label for="qty">Quantity</label>
+                <input id="qty" name="quantity" type="number" min="1" value="1">
+                <label for="date">Delivery Date</label>
+                <input id="date" name="delivery" type="date">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" required>
+                <label for="contact">Contact (phone or email)</label>
+                <input id="contact" name="contact" type="text" required>
+                <label for="price">Price</label>
+                <input id="price" name="price" type="text" readonly>
+                <div class="form-actions">
+                    <button type="submit">Submit Order</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            (function(){
+                const basePrices={butter:250,coconut:1800,sardine:1800}; 
+                const prod=document.getElementById('prod');
+                const qty=document.getElementById('qty');
+                const price=document.getElementById('price');
+                const deliveryDate = document.getElementById('date');
+                const nameField = document.getElementById('name');
+                const contactField = document.getElementById('contact');
+                const butterPriceOptions = document.getElementById('butter-price-options-standalone');
+
+                function update(){
+                    const p = prod.value;
+                    const q = Math.max(1, parseInt(qty.value||1,10));
+                    
+                    let selectedPrice;
+                    if (p === 'butter') {
+                        const selectedOption = document.querySelector('input[name="butter-size-standalone"]:checked');
+                        selectedPrice = selectedOption ? parseInt(selectedOption.value) : basePrices[p];
+                    } else {
+                        selectedPrice = basePrices[p];
+                    }
+                    
+                    price.value='₦'+(selectedPrice * q).toLocaleString();
+                }
+
+                function toggleButterOptions() {
+                    if (prod.value === 'butter') {
+                        butterPriceOptions.style.display = 'flex';
+                    } else {
+                        butterPriceOptions.style.display = 'none';
+                    }
+                    update();
+                }
+                
+                prod.addEventListener('change', toggleButterOptions); 
+                qty.addEventListener('input', update); 
+                
+                const butterSizeOptions = document.querySelectorAll('input[name="butter-size-standalone"]');
+                butterSizeOptions.forEach(option => {
+                    option.addEventListener('change', update);
+                });
+                
+                toggleButterOptions();
+                update();
+
+                document.getElementById('order-form-standalone').addEventListener('submit',function(e){
+                    e.preventDefault();
+                    update();
+
+                    let selectedButterSize = '';
+                    if (prod.value === 'butter') {
+                        const selectedOption = document.querySelector('input[name="butter-size-standalone"]:checked');
+                        if (selectedOption) {
+                            selectedButterSize = '₦' + selectedOption.value;
+                        }
+                    }
+                    
+                    const orderData={
+                        product: prod.value,
+                        productName: prod.options[prod.selectedIndex].text,
+                        butterSize: selectedButterSize,
+                        quantity: qty.value, 
+                        delivery: deliveryDate.value, 
+                        price: price.value, 
+                        name: nameField.value, 
+                        contact: contactField.value,
+                        _subject: 'New Order - Rahfel Bread & Bites (Standalone)'
+                    };
+                    
+                    const formSubmitURL = 'https://formsubmit.co/ajax/rahmonayobami45@gmail.com';
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    fetch(formSubmitURL, {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(orderData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success === "true") {
+                            alert('Order submitted successfully! We will contact you shortly.');
+                            this.reset();
+                            toggleButterOptions();
+                            update();
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Order submitted! If you don\'t hear from us within 24 hours, please call 08035107911');
+                        this.reset();
+                        toggleButterOptions();
+                        update();
+                    })
+                    .finally(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    });
+                });
+            })();
+        </script>
+    </body>
+</html>

@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <script src="bg.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Subtle matrix-style animated background canvas -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
     <header>
-        <h1>My Portfolio</h1>
-        <nav>
+        <div class="header-inner">
+            <h1>My Portfolio</h1>
+            <button id="nav-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+        </div>
+        <nav id="main-nav" class="collapsed" aria-label="Primary">
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#Education and Qualifications">Education and Qualifications</a></li>
+                <li><a href="#projects">Projects</a></li>
             </ul>
         </nav>
     </header>
@@ -27,10 +35,11 @@
         <div class="skills-grid">
             <div class="skill">
                 <img class="skill-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML5 logo">
-                <h3>HTML &amp; CSS</h3>
-                <p>I write semantic HTML and modern CSS to build accessible, well-structured pages. I use layouts (Flexbox and Grid), CSS variables, and best practices for maintainable styles.</p>
+                <h3>HTML</h3>
+                <p>I write semantic HTML to create accessible, well-structured pages using proper headings, ARIA where appropriate, and clean markup.</p>
             </div>
             <div class="skill">
+                <img class="skill-icon" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript logo">
                 <h3>JavaScript</h3>
                 <p>I use JavaScript for interactivity, DOM manipulation, and small dynamic features. I'm familiar with ES6+ syntax, events, and working with APIs.</p>
             </div>
@@ -40,18 +49,83 @@
             </div>
             <div class="skill">
                 <img class="skill-icon" src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 logo">
-                <h3>Version Control (Git)</h3>
-                <p>I track changes and collaborate using Git. I create branches, write clear commit messages, and use pull requests to review and merge changes safely.</p>
+                <h3>CSS</h3>
+                <p>I author modular, responsive styles using Flexbox, Grid, CSS variables, and sensible utility patterns for maintainable presentation.</p>
             </div>
+            <div class="skill">
+                <img class="skill-icon" src="download.jpeg" alt="XML logo">
+                <h3>XML</h3>
+                <p>I work with XML for data interchange and configuration files, understanding namespaces, schemas (XSD), and parsing techniques.</p>
+            </div>
+            <div class="skill">
+                <img class="skill-icon" src="jquery.jpg" alt="jQuery logo">
+                <h3>jQuery</h3>
+                <p>I use jQuery to simplify DOM manipulation, event handling, and AJAX interactions, enhancing user experience with smooth animations and dynamic content updates.</p>
+            </div>
+            <div class="skill">
+                <img class="skill-icon" src="react.jpg" alt="React logo">
+                <h3>React</h3>
+                <p>I build user interfaces with React, leveraging component-based architecture and state management for dynamic web applications.</p>
+            </div>
+            <div class="skill">
+                <img class="skill-icon" src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java logo">
+                <h3>Java</h3>
+                <p>I build object-oriented applications with Java, familiar with core libraries, basic I/O, and common tooling like Maven/Gradle.</p>
+            </div>
+        </div>
+    </section>
+    <section id="Education and Qualifications">
+        <h2>Education and Qualifications</h2>
+        <ul>
+            <li>Advanced Diploma in Software Engineering (ADSE) - Aptech Education Center (2025)</li>
+            <li>Senior School Certificate Examination (SSCE) - Kings Anchor College (2025)</li>
+            <li>Basic Python Programming - PurpleTutor (2022)</li>
+        </ul>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Below are a few local project previews. Click a card to open the project.</p>
+        <div class="projects-grid">
+            <a class="project-card" href="./my.html" target="_blank" rel="noopener">
+                <div class="project-thumb" aria-hidden="true"></div>
+                <h3>Personal Portfolio</h3>
+                <p>My portfolio site — responsive layout and background animation.</p>
+            </a>
+            <a class="project-card" href="../MUM-PROJ/a.html" target="_blank" rel="noopener">
+                <div class="project-thumb" aria-hidden="true"></div>
+                <h3>Bakery Project</h3>
+                <p>Simple demo project with layout and styles.</p>
+            </a>
+            <a class="project-card" href="../Domino's Pizza/index.html" target="_blank" rel="noopener">
+                <div class="project-thumb" aria-hidden="true"></div>
+                <h3>Domino's Pizza Demo</h3>
+                <p>Menu and ordering UI (local demo).</p>
+            </a>
         </div>
     </section>
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: your.email@example.com</p>
+        <p>Email: rahmonayobami45@gmail.com</p>
+        <p>Phone Number: 09014610141</p>
     </section>
     </main>
     <footer>
-        <p>&copy; 2024 My Portfolio</p>
+        <p>&copy; 2025 My Portfolio</p>
     </footer>
+    <script defer src="bg.js"></script>
+    <script>
+    // Small accessible nav toggle for narrow screens
+    (function(){
+        const btn = document.getElementById('nav-toggle');
+        const nav = document.getElementById('main-nav');
+        if(!btn || !nav) return;
+        btn.addEventListener('click', function(){
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('collapsed');
+        });
+    })();
+    </script>
 </body>
 </html>

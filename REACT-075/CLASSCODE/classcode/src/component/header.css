@@ -1,0 +1,44 @@
+.top{
+    background-color: #c7d458d8;
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    height: 100px;
+    }
+    .top p{
+        font-size: 50px;
+        color:white;
+        font-family: 'Poppins' sans-serif;
+        font-weight: bolder;
+        margin-top: 10px;
+    }
+    .top nav{
+        max-width: 500px;
+        height: 100px;
+          margin-top: 30px;
+      
+        
+    }
+    .top nav a {
+          padding:10px;
+          font-size: 20px;
+          text-decoration: none;
+         
+           align-items: cen;
+          
+
+    }
+    .btn{
+        width: 300px;
+        height:100px;
+          margin-top: 30px;
+    }
+    .btn button{
+        width:120px;
+        height: 40px;
+        margin:10px;
+        background-color:blueviolet ;
+        color:white;
+        font-size:20px;
+       
+    }

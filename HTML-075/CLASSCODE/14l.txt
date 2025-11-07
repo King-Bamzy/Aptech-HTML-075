@@ -1,0 +1,13 @@
+CACHE:
+# Defines resources to be cached.
+check.js
+styles.css
+images/figure1.jpg
+
+FALLBACK:
+# Defines resources to be used if non-cached resources cannot be downloaded
+Other_images/figure2.png
+
+NETWORK:
+# Defines resources that will not be cached.
+figure3.png

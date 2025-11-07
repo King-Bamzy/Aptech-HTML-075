@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.7.1.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("p").toggle(function() {
+                    $("body").css("background-color", "blue");
+                }, function () {
+                    $("body").css("background-color", "pink");
+                }, function () {
+                    $("body").css("background-color", "grey");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <p>
+            Click to change the colors
+        </p>
+</html>

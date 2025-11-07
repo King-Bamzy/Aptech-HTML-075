@@ -1,0 +1,42 @@
+import React from 'react';
+import './App.css';
+import Header from './component/Header';
+import Box from './component/Box';
+import UserProfile from './component/UserProfile';
+import Welcom from './component/Welcom';
+import User from './component/User';
+import Welcomes from './component/Welcomes';
+import Users from './component/Users';
+
+
+
+function App(){
+const users = [
+  {
+    name: "Cuban",
+    pic: "https://images.unsplash.com/photo-1618641986557-1ecd230959aa?ixlib-rb-4.0.3sixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+  },
+  {
+     name: "Spencer",
+    pic: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+  },
+  {
+     name: "Robert",
+    pic: "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+     name: "Einstein",
+    pic: "https://media.istockphoto.com/id/1179420343/photo/smiling-man-outdoors-in-the-city.jpg?s=612x612&w=0&k=20&c=81-gOboGEFSyCFXr09EgulmV0E0bFT5usAmslwyFBh8="
+  }
+];
+
+return (
+  <div className='App'>
+    {users.map((usr) => (
+      <Users name={usr.name} pic={usr.pic} />
+    ))}
+  </div>
+  
+);
+}
+export default App;

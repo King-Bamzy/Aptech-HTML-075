@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var trans = db.transaction(["employee"],
+            IDBTransaction.READ_WRITE) .objectStore("employee");
+            var request = trans.get(2);
+            request.onerror = function(event) {
+                //Handle errors!
+    };
+    request.onsuccess = function(event) {
+        // Do something with the request.result
+        alert("Name; " + request).result.name
+    };
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
