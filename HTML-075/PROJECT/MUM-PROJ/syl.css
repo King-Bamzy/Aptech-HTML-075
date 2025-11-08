@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,37 +10,37 @@ body {
     color: #222;
 }
 
-:root{
-    --brand:#581111;
-    --accent:#F2FF00;
-    --muted:#6b6b6b;
+:root {
+    --brand: #7b5454;
+    --accent: #F2FF00;
+    --muted: #6b6b6b;
 }
 
 header {
-    background: linear-gradient(90deg,var(--brand), #3f0d0d);
+    background: linear-gradient(90deg, var(--brand), #3f0d0d);
     color: #FFFFFF;
     padding: 14px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 6px 18px rgba(190, 66, 66, 0.12);
 }
 
 header .logo {
     width: 100px;
 }
 
-.header-content{
-    display:flex;
-    align-items:center;
-    width:100%;
-    gap:12px;
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
 }
 
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-left: auto;
 }
 
@@ -57,20 +57,24 @@ header input {
     background-color: var(--accent);
     padding: 10px 14px;
     border-radius: 6px;
-    color: var(--brand); 
+    color: var(--brand);
     cursor: pointer;
     font-weight: 700;
 }
-.cart button{
-    background:none; border:none; color:inherit; font:inherit; cursor:pointer;
-    padding:0; margin:0;
+
+.cart button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
 }
 
 .hero-section {
     position: relative;
-    background-image: url('images/hero-banner.jpg');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, var(--brand), #3f0d0d);
     color: #FFFFFF;
     text-align: center;
     padding: 80px 20px;
@@ -80,7 +84,7 @@ header input {
 .hero-section h2 {
     font-size: 36px;
     margin-bottom: 10px;
-    color: #F2FF00; 
+    color: var(--accent);
 }
 
 .hero-section p {
@@ -88,14 +92,27 @@ header input {
     margin-top: 10px;
 }
 
-.hero-section::after{
-    content: '';
-    position: absolute; inset:0; z-index:0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
 }
-.hero-section .hero-content{ position: relative; z-index:1; max-width:960px; margin:0 auto; }
-.hero-cta{
-    display:inline-block; margin-top:18px; padding:10px 16px; background:var(--accent); color:var(--brand); border-radius:8px; text-decoration:none; font-weight:700;
+
+.hero-cta {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: var(--brand);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
 }
 
 .categories {
@@ -120,14 +137,16 @@ header input {
     padding: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s;
+    cursor: pointer;
 }
 
 .category-item img {
     width: 100%;
-    height: 160px;
-    object-fit: cover;
+    height: 200px;
+    object-fit: contain;
     border-radius: 8px;
     margin-bottom: 12px;
+    background: #f8f8f8;
 }
 
 .category-item p {
@@ -141,33 +160,23 @@ header input {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
-.deals-section {
-    background-color: #FFFFFF;
-    padding: 50px 20px;
+.category-item img {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: freshPulse 6s ease-in-out infinite;
 }
 
-.deals-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 30px;
-    color: var(--brand);
+.category-item:hover img {
+    transform: scale(1.08) rotate(0.5deg);
+    box-shadow: 0 15px 35px rgba(88, 17, 17, 0.25);
 }
 
-.deal-items {
-    display: flex;
-    justify-content: space-around;
-}
-
-.deal-item {
-    text-align: center;
-    flex: 1;
-    margin: 0 15px;
-}
-
-.deal-item img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 8px;
+@keyframes freshPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
 }
 
 .client-section {
@@ -267,181 +276,61 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.modal{ display:none; }
-.modal.open{ display:block; position:fixed; inset:0; z-index:1200; }
-.modal-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.5); }
-.modal-panel{ position:relative; width:min(720px, 96%); margin:48px auto; background:#fff; border-radius:10px; padding:18px 20px; box-shadow:0 20px 60px rgba(0,0,0,0.35); z-index:1210; }
-.modal-close{ position:absolute; right:12px; top:8px; background:transparent; border:none; font-size:22px; cursor:pointer; color:var(--muted); }
-.modal-panel h3{ margin-top:0; color:var(--brand); }
-.modal-panel form{ display:flex; flex-direction:column; gap:10px; }
-.modal-panel label{ font-weight:600; color:var(--muted); margin-top:5px; }
-.modal-panel input[type="text"], .modal-panel input[type="number"], .modal-panel input[type="date"], .modal-panel select{ padding:10px; border-radius:6px; border:1px solid #ddd; }
-.modal-panel input[readonly]{ background-color:#f8f8f8; cursor:default; }
-.form-row{ display:flex; gap:10px; align-items:center; }
-.form-actions{ display:flex; justify-content:flex-end; gap:10px; margin-top:12px; }
-.form-actions button{ padding:10px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:600;}
-.form-actions button[type="submit"]{ background:var(--brand); color:#fff; }
-.form-actions button#cancel-order{ background:#eee; color:#222; }
-
-.compact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.footer-content p {
+    font-size: 14px;
 }
 
-.compact-form label {
-  font-weight: 600;
-  color: var(--muted);
-  margin-top: 3px;
-  font-size: 14px;
+.modal {
+    display: none;
 }
 
-.compact-form input[type="text"],
-.compact-form input[type="number"],
-.compact-form input[type="date"],
-.compact-form select {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  font-size: 14px;
+.modal.open {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
 }
 
-.compact-form .form-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
 }
 
-.compact-form .form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 8px;
-  margin-top: 8px;
+.modal-panel {
+    position: relative;
+    width: min(500px, 96%);
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    z-index: 1210;
 }
 
-.compact-form .form-actions button {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.butter-price-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 5px;
-}
-
-.price-option {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-}
-
-.price-option input[type="radio"] {
-  margin: 0;
-}
-
-.compact-modal .modal-panel {
-  width: min(500px, 96%);
-  margin: 30px auto;
-  padding: 15px;
-}
-
-@media only screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    .header-actions{
-        width:100%;
-        justify-content: space-between;
-    }
-    header input{ width: calc(100% - 120px); max-width: 100%; }
-
-    .deal-items {
-        flex-direction: column;
-        align-items: center;
-    }
-    .deal-item {
-        margin-bottom: 20px;
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    .contact-section {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .contact-info, .service-info {
-        padding: 10px 0;
-    }
-    .services {
-        flex-direction: column;
-    }
-    
-    .client-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media only screen and (max-width: 520px){
-    .hero-section{ padding: 40px 14px; }
-    .hero-section h2{ font-size: 22px; }
-    .category-item img{ height: 140px; }
-    .modal-panel{ margin:20px 12px; padding:14px; }
-    .client-grid {
-        grid-template-columns: 1fr;
-    }
-    .butter-price-options {
-        flex-direction: column;
-        gap: 5px;
-    }
-}
-
-a:focus, button:focus, input:focus, select:focus {
-    outline: 3px solid rgba(76,175,80,0.18);
-    outline-offset: 3px;
-}
-
-/* Better category images */
-.category-item {
+.modal-close {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    color: var(--muted);
 }
 
-.category-item img {
-    width: 100%;
-    height: 200px; /* Increased height */
-    object-fit: cover; /* This makes images fully show without distortion */
-    border-radius: 8px;
-    margin-bottom: 12px;
+.modal-panel h3 {
+    margin-top: 0;
+    color: var(--brand);
+    margin-bottom: 15px;
 }
 
-/* Hover effects for categories */
-.category-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* Better form styling */
-.compact-form input[type="text"] {
-    width: 100%;
-}
-
-/* Scrollable form container */
 .form-scroll-container {
     max-height: 400px;
     overflow-y: auto;
     padding-right: 5px;
 }
 
-/* Scrollbar styling */
 .form-scroll-container::-webkit-scrollbar {
     width: 6px;
 }
@@ -456,81 +345,145 @@ a:focus, button:focus, input:focus, select:focus {
     border-radius: 10px;
 }
 
-.form-scroll-container::-webkit-scrollbar-thumb:hover {
-    background: #3f0d0d;
-}
-
-/* Make modal panel slightly taller for scroll */
-.compact-modal .modal-panel {
-    max-height: 90vh;
+.compact-form {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
-/* Ensure form actions stay visible */
+.compact-form label {
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.compact-form input, .compact-form select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.compact-form input[readonly] {
+    background: #f8f8f8;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 .form-actions {
-    position: sticky;
-    bottom: 0;
-    background: white;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px;
     padding-top: 10px;
     border-top: 1px solid #eee;
-    margin-top: 10px;
 }
 
-/* ===== BREAD IMAGE ANIMATIONS ===== */
-
-.category-item img {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    animation: freshPulse 6s ease-in-out infinite;
-    border-radius: 12px;
-}
-
-.category-item:hover img {
-    transform: scale(1.08) rotate(0.5deg);
-    box-shadow: 0 15px 35px rgba(88, 17, 17, 0.25);
-}
-
-@keyframes freshPulse {
-    0%, 100% { 
-        transform: scale(1); 
-    }
-    50% { 
-        transform: scale(1.02); 
-    }
-}
-
-/* Make the entire category item clickable with feedback */
-.category-item {
+.form-actions button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    font-weight: 600;
+    font-size: 14px;
 }
 
-.category-item:hover {
-    transform: translateY(-5px);
+.form-actions button[type="submit"] {
+    background: var(--brand);
+    color: #fff;
 }
 
-/* Optional: Add a subtle glow on hover */
-.category-item:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(242, 255, 0, 0.15);
-    pointer-events: none;
+.form-actions button#cancel-order {
+    background: #eee;
+    color: #222;
 }
-.category-item::before {
-    content: "🔥 Fresh!";
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--accent);
-    color: var(--brand);
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
-    animation: bounce 2s infinite;
+
+.butter-price-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.price-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.price-option input[type="radio"] {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    header input {
+        width: calc(100% - 120px);
+        max-width: 100%;
+    }
+
+    .contact-section {
+        flex-direction: column;
+    }
+    
+    .contact-info, .service-info {
+        padding: 10px 0;
+    }
+    
+    .services {
+        flex-direction: column;
+    }
+    
+    .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .butter-price-options {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-section {
+        padding: 40px 14px;
+    }
+    
+    .hero-section h2 {
+        font-size: 22px;
+    }
+    
+    .category-item img {
+        height: 140px;
+    }
+    
+    .modal-panel {
+        margin: 20px 12px;
+        padding: 14px;
+    }
+    
+    .client-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+a:focus, button:focus, input:focus, select:focus {
+    outline: 3px solid rgba(76,175,80,0.18);
+    outline-offset: 3px;
 }
