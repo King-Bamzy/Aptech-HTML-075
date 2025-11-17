@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-    --brand: #7b5454;
+    --brand: #581111;
     --accent: #F2FF00;
     --muted: #6b6b6b;
 }
@@ -27,8 +27,11 @@ header {
 }
 
 header .logo {
-    width: 100px;
+    width: 110px;
+    border-radius: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
 }
+
 
 .header-content {
     display: flex;
@@ -420,14 +423,17 @@ footer {
 .price-option input[type="radio"] {
     margin: 0;
 }
-
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-    
+  header {
+    padding: 18px;
+  }
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
     .header-actions {
         width: 100%;
         justify-content: space-between;
@@ -458,7 +464,7 @@ footer {
         flex-direction: column;
         gap: 5px;
     }
-}
+
 
 @media (max-width: 520px) {
     .hero-section {
